@@ -1,15 +1,18 @@
 package heh.be.projet_tri.model;
 
-import lombok.Builder;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import lombok.Setter;
 
 @Getter
 @RequiredArgsConstructor
 public class Car {
 
+    @Getter
     private final String marque;
+
+    @Getter
     private final String model;
+
+    @Getter
     private final Integer annee;
 }

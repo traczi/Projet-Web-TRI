@@ -1,9 +1,6 @@
 package heh.be.projet_tri.adaptater.out;
 
-
-
 import lombok.Data;
-
 import javax.persistence.*;
 
 @Entity
