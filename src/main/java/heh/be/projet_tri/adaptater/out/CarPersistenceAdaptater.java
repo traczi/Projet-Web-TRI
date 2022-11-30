@@ -19,5 +19,4 @@ public class CarPersistenceAdaptater implements CarListUseCase {
         List<CarJpaEntity> carEntity = carRepository.findAll();
         return carMapper.mapTodomainEntity(carEntity);
     }
-
 }

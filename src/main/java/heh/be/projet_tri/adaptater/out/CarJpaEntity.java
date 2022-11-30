@@ -20,4 +20,5 @@ public class CarJpaEntity {
 
     @Column(name = "annee")
     private Integer annee;
+
 }
