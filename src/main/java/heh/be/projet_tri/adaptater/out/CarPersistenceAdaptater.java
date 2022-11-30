@@ -2,12 +2,12 @@ package heh.be.projet_tri.adaptater.out;
 
 import java.util.List;
 
-import heh.be.projet_tri.model.Car;
-import heh.be.projet_tri.ports.in.CarListUseCase;
+import heh.be.projet_tri.domain.model.Car;
+import heh.be.projet_tri.domain.port.out.CarPortOut;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-public class CarPersistenceAdaptater implements CarListUseCase {
+public class CarPersistenceAdaptater implements CarPortOut {
 
 
     private final CarRepository carRepository;
@@ -16,7 +16,15 @@ public class CarPersistenceAdaptater implements CarListUseCase {
     @Override
     public List<Car> getCarList() {
 
-        List<CarJpaEntity> carEntity = carRepository.findAll();
-        return carMapper.mapTodomainEntity(carEntity);
+        List<CarJpaEntity> carJpaEntityList = carRepository.findAll();
+        return carMapper.CarMapJpaToDomain(carJpaEntityList);
+    }
+    @Override
+    public List<Car> getCarListById(List<Integer> list) {
+        return null;
+    }
+    @Override
+    public void addCar(Car car) {
+        carRepository.save(carMapper.CarMapDomainToJpa(car));
     }
 }

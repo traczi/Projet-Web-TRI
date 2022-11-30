@@ -3,6 +3,8 @@ package heh.be.projet_tri;
 import heh.be.projet_tri.adaptater.out.CarMapper;
 import heh.be.projet_tri.adaptater.out.CarPersistenceAdaptater;
 import heh.be.projet_tri.adaptater.out.CarRepository;
+import heh.be.projet_tri.domain.port.in.CarPortIn;
+import heh.be.projet_tri.domain.port.out.CarPortOut;
 import heh.be.projet_tri.ports.in.CarListUseCase;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -14,10 +16,16 @@ public class Configuration {
     @Autowired
     private CarRepository carRepository;
 
-    private final CarMapper carMapper = new CarMapper();
+    private CarMapper carMapper = new CarMapper();
+    private CarPersistenceAdaptater carPersistenceAdaptater;
 
     @Bean
-    CarListUseCase getCarListUseCase(){
+    public CarPortOut getCarPortOut(){
         return new CarPersistenceAdaptater(carRepository,carMapper);
+    }
+    @Bean
+    public CarPortIn getCarPortIn(){
+        carPersistenceAdaptater = new CarPersistenceAdaptater(carRepository, carMapper);
+        return new CarListUseCase(carPersistenceAdaptater);
     }
 }

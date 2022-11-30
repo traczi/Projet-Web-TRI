@@ -1,5 +1,5 @@
 package heh.be.projet_tri.adaptater.in;
-import heh.be.projet_tri.model.Car;
+import heh.be.projet_tri.domain.model.Car;
 import heh.be.projet_tri.ports.in.CarListUseCase;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,4 +22,9 @@ public class CarController {
         model.addAttribute("cars",cars);
         return "carList";
     }
+    @GetMapping("/addCar")
+    public String addCar(){
+        return "addCar";
+    }
+
 }

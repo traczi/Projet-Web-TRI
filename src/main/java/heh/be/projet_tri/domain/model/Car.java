@@ -1,10 +1,12 @@
-package heh.be.projet_tri.model;
+package heh.be.projet_tri.domain.model;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 public class Car {
+    @Getter 
+    private final Long id;
     @Getter
     private final String marque;
     @Getter

@@ -7,6 +7,15 @@ import javax.persistence.*;
 @Data
 @Table(name = "cars")
 public class CarJpaEntity {
+    public CarJpaEntity(){
+
+    }
+    public CarJpaEntity(Long id, String marque, String model, Integer annee){
+        this.idCar = id;
+        this.marque = marque;
+        this.model = model;
+        this.annee = annee;
+    }
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_car")
