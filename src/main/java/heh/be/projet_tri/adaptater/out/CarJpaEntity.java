@@ -17,7 +17,7 @@ public class CarJpaEntity {
         this.annee = annee;
     }
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_car")
     private Long idCar;
 

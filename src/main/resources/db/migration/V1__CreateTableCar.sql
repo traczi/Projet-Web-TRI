@@ -1,6 +1,6 @@
 CREATE TABLE IF NOT EXISTS cars  (
     id_car SERIAL PRIMARY KEY,
-    marque varchar(15),
-    model varchar(15),
+    marque varchar(255),
+    model varchar(255),
     annee int
     );

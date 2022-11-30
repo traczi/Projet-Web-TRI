@@ -2,6 +2,7 @@ package heh.be.projet_tri.ports.in;
 
 import java.util.List;
 
+import heh.be.projet_tri.adaptater.out.CarRepository;
 import heh.be.projet_tri.domain.model.Car;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -18,8 +19,29 @@ public class CarListUseCase implements CarPortIn {
         return getCarPortOut().getCarList();
     }
 
+
     @Override
     public void addCar(Car car) {
-        carPortOut.addCar(car);
+
+        List<Car> cars = carPortOut.getCarList();
+        boolean bool = true;
+        for(Car pr : cars){
+            if(pr.getMarque().equals(car.getMarque())){
+                bool=false;
+            }
+        }
+        if(bool){
+            carPortOut.addCar(car);
+        }
+    }
+
+    @Override
+    public void deleteCar(Long id){
+        carPortOut.deleteCar(id);
+    }
+
+    @Override
+    public Car selectId(Long id) {
+        return carPortOut.selectId(id);
     }
 }
