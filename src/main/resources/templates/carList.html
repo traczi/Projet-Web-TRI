@@ -69,18 +69,24 @@
 <p class="text-start ms-2">Les voitures</p>
 <table class="table table-striped">
     <tr>
+        <th>Id</th>
         <th>Marque</th>
         <th>Model</th>
         <th>AnnÃ©e</th>
     </tr>
-    <tr th:each="car : ${cars}">
-        <td th:text="${car.getMarque}"></td>
-        <td th:text="${car.getModel}"></td>
-        <td th:text="${car.getAnnee}"></td>
-        <form action="/deleteCar" method="delete" class="inscription" name="deleteCar">
-            <button type="submit" value="delete" name="valider_ajouter_album" class="btn btn-primary m-4">delete</button>
-        </form>
-    </tr>
+        <tr th:each="car : ${cars}">
+            <td th:text="${car.getId}"></td>
+            <td th:text="${car.getMarque}"></td>
+            <td th:text="${car.getModel}"></td>
+            <td th:text="${car.getAnnee}"></td>
+            <form action="/deleteCarForm" method="post" class="inscription" name="id">
+            <input type="hidden" name="id" th:value="${car.getId}">
+                <td><button type="submit" value="delete"  name="valider_ajouter_album" class="btn btn-primary m-4">delete</button></td>
+            </form>
+            <form action="/updateCar" method="get" name="update">
+                <td><button type="submit" value="update"  name="valider_ajouter_album" class="btn btn-primary m-4">update</button></td>
+            </form>
+        </tr>
 </table>
 </body>
 </html>

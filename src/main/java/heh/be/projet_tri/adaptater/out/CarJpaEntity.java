@@ -10,6 +10,7 @@ public class CarJpaEntity {
     public CarJpaEntity(){
 
     }
+
     public CarJpaEntity(Long id, String marque, String model, Integer annee){
         this.idCar = id;
         this.marque = marque;

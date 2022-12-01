@@ -2,7 +2,6 @@ package heh.be.projet_tri.ports.in;
 
 import java.util.List;
 
-import heh.be.projet_tri.adaptater.out.CarRepository;
 import heh.be.projet_tri.domain.model.Car;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -33,6 +32,11 @@ public class CarListUseCase implements CarPortIn {
         if(bool){
             carPortOut.addCar(car);
         }
+    }
+
+    @Override
+    public void updateCar(Car car){
+        carPortOut.updateCar(car);
     }
 
     @Override

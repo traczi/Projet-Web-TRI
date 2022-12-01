@@ -8,6 +8,7 @@ public interface CarPortIn {
     public List<Car> getCarList();
     public void addCar(Car car);
     public void deleteCar(Long id);
+    void updateCar(Car car);
 
     Car selectId(Long id);
 }

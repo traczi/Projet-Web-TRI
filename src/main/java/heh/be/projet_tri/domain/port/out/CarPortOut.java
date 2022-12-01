@@ -10,6 +10,9 @@ public interface CarPortOut {
     public List<Car> getCarListById(List<Integer> list);
 
     public void addCar(Car car);
+
+    void updateCar(Car car);
+
     public void deleteCar(Long id);
 
     public Car selectId(Long id);
