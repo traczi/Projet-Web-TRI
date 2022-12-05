@@ -34,23 +34,30 @@
         </form>
       </div>
     </div>
-
   </nav>
 </header>
-<p class="text-start ms-2">Entre ta voiture dans la basse de donnée</p>
+<p class="text-start ms-2">Entre ta voiture dans la basse de donnÃ©</p>
+<form action="/selectId" method="post" class="inscription" name="selectId">
+  <p>Numéro de produit :</p>
+  <select name="number">
+    <option th:text="${id}" selected></option>
+    <option th:each="integer : ${listNumber}" th:text="${integer}" name="number"></option>
+  </select>
+  <input type="submit" value="Sélectionner" name="selection_nprod">
+</form>
 <form action="/updateCarForm" method="post" class="inscription" name="updateCar">
   <div class="row">
     <div>
-      <input type="number" name="id" value="0">
+      <input type="hidden" name="id" th:value="${car.getId}">
     </div>
     <div class="col">
-      <input type="text" name="marque" class="form-control ms-2" placeholder="marque" required>
+      <input th:value="${car.getMarque}" type="text" name="marque" class="form-control ms-2" required>
     </div>
     <div class="col">
-      <input type="text" name="model" class="form-control" placeholder="model" required>
+      <input th:value="${car.getModel}" type="text" name="model" class="form-control" required>
     </div>
     <div class="col">
-      <input type="number" name="annee" class="form-control" placeholder="annee" required>
+      <input th:value="${car.getAnnee}" type="number" name="annee" class="form-control" required>
     </div>
   </div>
   <button type="submit" value="Ajouter" name="valider_ajouter_album" class="btn btn-primary m-4">Validation</button>

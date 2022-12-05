@@ -11,7 +11,7 @@ public interface CarPortOut {
 
     public void addCar(Car car);
 
-    void updateCar(Car car);
+    public void updateCar(Car car);
 
     public void deleteCar(Long id);
 
